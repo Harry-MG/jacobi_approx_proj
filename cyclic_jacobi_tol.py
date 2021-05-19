@@ -21,7 +21,7 @@ def cyclic_jacobi_tol(A, tol):
                 J[q, p] = -s
                 J[q, q] = c
                 A = np.matmul(np.matmul(np.transpose(J), A), J)
-                V = V * J
+                V = V @ J
 
     class outputs():
         diagonal = A
