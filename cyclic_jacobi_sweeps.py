@@ -17,7 +17,7 @@ def cyclic_jacobi_sweeps(A, sweeps):
                 J[q, p] = -s
                 J[q, q] = c
                 A = np.transpose(J) @ A @ J
-                V = V * J
+                V = V @ J
 
     class outputs:
         def __init__(self):
