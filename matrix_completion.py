@@ -10,7 +10,7 @@ from matrix_completion_objective import matrix_completion_objective
 
 # generate a symmetric sparse low rank matrix
 
-n = 100
+n = 60
 m = np.random.rand(n, n)
 
 m = 0.5 * (m + np.transpose(m))

@@ -16,6 +16,8 @@ def jacobi_fast_prox_nuc_norm(f, grad, max_iter, dimension, step_size, reltol, l
 
     x = np.eye(n)
 
+    x_old = np.eye(n)
+
     U = np.eye(n)
 
     t = step_size
@@ -33,9 +35,10 @@ def jacobi_fast_prox_nuc_norm(f, grad, max_iter, dimension, step_size, reltol, l
     for k in range(2, max_iter + 2):
         start = time.time()
 
+        x_old_old = x_old
         x_old = x
         beta = (k - 1) / (k + 2)
-        y = x + beta * (x - x_old)
+        y = x_old + beta * (x_old - x_old_old)
         z = y - t * grad(y)
 
         if tol is not None:
